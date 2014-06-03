@@ -1,0 +1,53 @@
+# Sitemap Path
+Sitemap: http://richardjgreen.net/sitemap.xml
+
+# Allow Good Search Bots
+User-agent: TechnoratiBot/8.1
+Allow: /
+Disallow: /wp-admin/
+Disallow: /wp-includes/
+
+# Global Rules
+User-agent: *
+Disallow: /wp-content/
+Disallow: /wp-admin/
+Disallow: /wp-includes/
+Disallow: /author/
+Disallow: /archive/
+Disallow: /archives/
+Disallow: /tags/
+Disallow: /page/
+Disallow: /pages/
+Disallow: /feed/
+Disallow: /trackback/
+Disallow: /*/feed/
+Disallow: /*/trackback/
+Disallow: /index.php
+Disallow: /xmlrpc.php
+Disallow: /*?
+Disallow: /*.php$
+Disallow: /*.css$
+Disallow: /*.js$
+Disallow: /*.inc$
+Disallow: /2006/
+Disallow: /2007/
+Disallow: /2008/
+Disallow: /2009/
+Disallow: /2010/
+Disallow: /2011/
+Disallow: /2012/
+Disallow: /2013/
+Disallow: /2014/
+Disallow: /2015/
+Allow: /me/
+Allow: /wp-content/plugins/youtube-embed-plus/scripts/
+
+# Block Bad Search Bots
+User-agent: Mediapartners-Google*
+Disallow: /
+
+User-agent: ia_archiver
+Disallow: /
+
+User-agent: duggmirror
+Disallow: /
