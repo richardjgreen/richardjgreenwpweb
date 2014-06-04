@@ -20,12 +20,12 @@ define('WP_MEMORY_LIMIT', '128M');
 define('AUTOSAVE_INTERVAL', 120);
 define('WP_HOME', 'http://richardjgreen.net');
 define('WP_SITEURL', 'http://richardjgreen.net');
-define('TEMPLATEPATH', 'C:\DWASFiles\Sites\(getenv('maws_sitename'))\VirtualDirectory0\site\wwwroot\wp-content\themes\metro');
-define('STYLESHEETPATH', 'C:\DWASFiles\Sites\(getenv('maws_sitename'))\VirtualDirectory0\site\wwwroot\wp-content\themes\metro');
+define('TEMPLATEPATH', "C:\DWASFiles\Sites\${getenv('maws_sitename')}\VirtualDirectory0\site\wwwroot\wp-content\themes\metro");
+define('STYLESHEETPATH', "C:\DWASFiles\Sites\${getenv('maws_sitename')}\VirtualDirectory0\site\wwwroot\wp-content\themes\metro");
 
 /** Settings for WordPress Super Cache Plugin */
 define('WP_CACHE', true);
-define('WPCACHEHOME', 'C:\DWASFiles\Sites\(getenv('maws_sitename'))\VirtualDirectory0\site\wwwroot\wp-content\plugins\wp-super-cache/');
+define('WPCACHEHOME', "C:\DWASFiles\Sites\${getenv('maws_sitename')}\VirtualDirectory0\site\wwwroot\wp-content\plugins\wp-super-cache/");
 
 // ** SQL Azure database settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
@@ -79,7 +79,7 @@ $table_prefix  = getenv('wp_db_prefix');
 
 /** Query Logging Settings */
 define('SAVEQUERIES', FALSE);
-define('QUERY_LOG', 'C:\DWASFiles\Sites\(getenv('maws_sitename'))\VirtualDirectory0\site\wwwroot/wp-content\queries.log');
+define('QUERY_LOG', "C:\DWASFiles\Sites\${getenv('maws_sitename')}\VirtualDirectory0\site\wwwroot/wp-content\queries.log");
 
 /**
 * WordPress Localized Language, defaults to English.
