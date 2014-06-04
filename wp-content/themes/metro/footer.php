@@ -54,7 +54,7 @@
 	</div><!-- #wrapper -->
 	</div><!-- #wrapperframe -->	
 
-<!-- This page was loaded from the <?php getenv('maws_sitename') web site. -->
+<!-- This page was loaded from the <?php getenv('maws_sitename'); ?> web site. -->
 
 </body>
 </html>
