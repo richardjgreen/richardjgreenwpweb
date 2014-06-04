@@ -12,7 +12,7 @@ define('AUTOSAVE_INTERVAL', 120);
 define('WP_HOME', 'http://richardjgreen.net');
 define('WP_SITEURL', 'http://richardjgreen.net');
 define('TEMPLATEPATH', "{$site_path}\site\wwwroot\wp-content\themes\metro");
-define('STYLESHEETPATH', "{$site_path]}\site\wwwroot\wp-content\themes\metro");
+define('STYLESHEETPATH', "{$site_path}\site\wwwroot\wp-content\themes\metro");
 
 define('WP_CACHE', true);
 define('WPCACHEHOME', "{$site_path}\site\wwwroot\wp-content\plugins\wp-super-cache/");
