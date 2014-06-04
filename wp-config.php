@@ -4,15 +4,18 @@
 * @package WordPress
 */
 
+$site_path = $_SERVER['HOME_EXPANDED'];
+$table_prefix  = getenv('wp_db_prefix');
+
 define('WP_MEMORY_LIMIT', '128M');
 define('AUTOSAVE_INTERVAL', 120);
 define('WP_HOME', 'http://richardjgreen.net');
 define('WP_SITEURL', 'http://richardjgreen.net');
-define('TEMPLATEPATH', "{$_SERVER['HOME_EXPANDED']}\site\wwwroot\wp-content\themes\metro");
-define('STYLESHEETPATH', "{$_SERVER['HOME_EXPANDED']}\site\wwwroot\wp-content\themes\metro");
+define('TEMPLATEPATH', "{$site_path}\site\wwwroot\wp-content\themes\metro");
+define('STYLESHEETPATH', "{$site_path]}\site\wwwroot\wp-content\themes\metro");
 
 define('WP_CACHE', true);
-define('WPCACHEHOME', "{$_SERVER['HOME_EXPANDED']}\site\wwwroot\wp-content\plugins\wp-super-cache/");
+define('WPCACHEHOME', "{$site_path}\site\wwwroot\wp-content\plugins\wp-super-cache/");
 
 define('DB_NAME', getenv('wp_db_name'));
 define('DB_USER', getenv('wp_db_user'));
@@ -21,8 +24,6 @@ define('DB_HOST', getenv('wp_db_host'));
 define('DB_TYPE', 'pdo_sqlsrv');
 define('DB_CHARSET', 'utf8');
 define('DB_COLLATE', '');
-
-$table_prefix  = getenv('wp_db_prefix');
 
 define('AUTH_KEY',         'O<_BwDImT)SQxuBVB]HRgfctwo)7`YavUC7<^i-iIH|H[_QlqNq^RCYq*6Df2gwo');
 define('SECURE_AUTH_KEY',  '<O2-$1+K-FDc:+<p?^%N]Q&:zkdv&y)-H4yEO0fh_|fQ_IlVNG4vZ,AJH^`*hj]B');
@@ -33,8 +34,6 @@ define('SECURE_AUTH_SALT', '[.}2,CY3<a FI(Mu+yAEd,%q@[[$EIO$B-~ 5,7v:@Q)eKT$_QI.
 define('LOGGED_IN_SALT',   'n0Erw1Yt@+eS@Tq_U-hjrx@;kBOt0Hqwwn~:G+2M>b+%[|NT%ZPJ~6T1Jas@;IJ|');
 define('NONCE_SALT',       'tAmX7v=|V&&Y&~fye]_h-Qj6jpTdS=<,|k<}|I+#|~cS8b.jPNA6iL]zL(,h%Y:}');
 
-define('SAVEQUERIES', false);
-define('QUERY_LOG', "{$_SERVER['HOME_EXPANDED']}\site\wwwroot/wp-content\queries.log");
 define('WPLANG', '');
 define('WP_DEBUG', false);
 
