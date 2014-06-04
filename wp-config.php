@@ -1,17 +1,6 @@
 <?php
 
 /**
-* The base configurations of the WordPress.
-*
-* This file has the following configurations: MySQL settings, Table Prefix,
-* Secret Keys, WordPress Language, and ABSPATH. You can find more information
-* by visiting {@link http://codex.wordpress.org/Editing_wp-config.php Editing
-* wp-config.php} Codex page. You can get the MySQL settings from your web host.
-*
-* This file is used by the wp-config.php creation script during the
-* installation. You don't have to use the web site, you can just copy this file
-* to "wp-config.php" and fill in the values.
-*
 * @package WordPress
 */
 
@@ -19,11 +8,11 @@ define('WP_MEMORY_LIMIT', '128M');
 define('AUTOSAVE_INTERVAL', 120);
 define('WP_HOME', 'http://richardjgreen.net');
 define('WP_SITEURL', 'http://richardjgreen.net');
-/** define('TEMPLATEPATH', "C:\DWASFiles\Sites\{$getenv('maws_sitename')}\VirtualDirectory0\site\wwwroot\wp-content\themes\metro"); */
-/** define('STYLESHEETPATH', "C:\DWASFiles\Sites\{$getenv('maws_sitename')}\VirtualDirectory0\site\wwwroot\wp-content\themes\metro"); */
+define('TEMPLATEPATH', "D:\home\site\site\wwwroot\wp-content\themes\metro");
+define('STYLESHEETPATH', "D:\home\site\wwwroot\wp-content\themes\metro");
 
 define('WP_CACHE', true);
-define('WPCACHEHOME', "C:\DWASFiles\Sites\{$getenv('maws_sitename')}\VirtualDirectory0\site\wwwroot\wp-content\plugins\wp-super-cache/");
+define('WPCACHEHOME', "D:\home\site\wwwroot\wp-content\plugins\wp-super-cache/");
 
 define('DB_NAME', getenv('wp_db_name'));
 define('DB_USER', getenv('wp_db_user'));
@@ -44,9 +33,8 @@ define('SECURE_AUTH_SALT', '[.}2,CY3<a FI(Mu+yAEd,%q@[[$EIO$B-~ 5,7v:@Q)eKT$_QI.
 define('LOGGED_IN_SALT',   'n0Erw1Yt@+eS@Tq_U-hjrx@;kBOt0Hqwwn~:G+2M>b+%[|NT%ZPJ~6T1Jas@;IJ|');
 define('NONCE_SALT',       'tAmX7v=|V&&Y&~fye]_h-Qj6jpTdS=<,|k<}|I+#|~cS8b.jPNA6iL]zL(,h%Y:}');
 
-/** Query Logging Settings */
 define('SAVEQUERIES', FALSE);
-/** define('QUERY_LOG', "C:\DWASFiles\Sites\{$getenv('maws_sitename')}\VirtualDirectory0\site\wwwroot/wp-content\queries.log"); */
+define('QUERY_LOG', "D:\home\site\wwwroot/wp-content\queries.log");
 define('WPLANG', '');
 define('WP_DEBUG', false);
 
