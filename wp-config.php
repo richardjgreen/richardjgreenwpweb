@@ -27,27 +27,15 @@ define('STYLESHEETPATH', "C:\DWASFiles\Sites\${getenv('maws_sitename')}\VirtualD
 define('WP_CACHE', true);
 define('WPCACHEHOME', "C:\DWASFiles\Sites\${getenv('maws_sitename')}\VirtualDirectory0\site\wwwroot\wp-content\plugins\wp-super-cache/");
 
-// ** SQL Azure database settings - You can get this info from your web host ** //
-/** The name of the database for WordPress */
 define('DB_NAME', getenv('wp_db_name'));
-
-/** SQL Azure database username */
 define('DB_USER', getenv('wp_db_user'));
-
-/** SQL Azure database password */
 define('DB_PASSWORD', getenv('wp_db_password'));
-
-/** Primary SQL Azure Server (North Europe) */
 define('DB_HOST', getenv('wp_db_host'));
-
-/** Database Type. Defaults to mysql */
 define('DB_TYPE', 'pdo_sqlsrv');
-
-/** Database Charset to use in creating database tables. */
 define('DB_CHARSET', 'utf8');
-
-/** The Database Collate type. Don't change this if in doubt. */
 define('DB_COLLATE', '');
+
+$table_prefix  = getenv('wp_db_prefix');
 
 /**#@+
 * Authentication Unique Keys and Salts.
@@ -67,46 +55,14 @@ define('SECURE_AUTH_SALT', '[.}2,CY3<a FI(Mu+yAEd,%q@[[$EIO$B-~ 5,7v:@Q)eKT$_QI.
 define('LOGGED_IN_SALT',   'n0Erw1Yt@+eS@Tq_U-hjrx@;kBOt0Hqwwn~:G+2M>b+%[|NT%ZPJ~6T1Jas@;IJ|');
 define('NONCE_SALT',       'tAmX7v=|V&&Y&~fye]_h-Qj6jpTdS=<,|k<}|I+#|~cS8b.jPNA6iL]zL(,h%Y:}');
 
-/**#@-*/
-
-/**
-* WordPress Database Table prefix.
-*
-* You can have multiple installations in one database if you give each a unique
-* prefix. Only numbers, letters, and underscores please!
-*/
-$table_prefix  = getenv('wp_db_prefix');
-
 /** Query Logging Settings */
 define('SAVEQUERIES', FALSE);
 define('QUERY_LOG', "C:\DWASFiles\Sites\${getenv('maws_sitename')}\VirtualDirectory0\site\wwwroot/wp-content\queries.log");
-
-/**
-* WordPress Localized Language, defaults to English.
-*
-* Change this to localize WordPress. A corresponding MO file for the chosen
-* language must be installed to wp-content/languages. For example, install
-* de_DE.mo to wp-content/languages and set WPLANG to 'de_DE' to enable German
-* language support.
-*/
 define('WPLANG', '');
-
-/**
-* For developers: WordPress debugging mode.
-*
-* Change this to true to enable the display of notices during development.
-* It is strongly recommended that plugin and theme developers use WP_DEBUG
-* in their development environments.
-*/
 define('WP_DEBUG', false);
 
-/* That's all, stop editing! Happy blogging. */
-
-/** Absolute path to the WordPress directory. */
 if ( !defined('ABSPATH') )
 define('ABSPATH', dirname(__FILE__) . '/');
-
-/** Sets up WordPress vars and included files. */
 require_once(ABSPATH . 'wp-settings.php');
 
 
