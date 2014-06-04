@@ -8,11 +8,11 @@ define('WP_MEMORY_LIMIT', '128M');
 define('AUTOSAVE_INTERVAL', 120);
 define('WP_HOME', 'http://richardjgreen.net');
 define('WP_SITEURL', 'http://richardjgreen.net');
-define('TEMPLATEPATH', "D:\home\site\wwwroot\wp-content\themes\metro");
-define('STYLESHEETPATH', "D:\home\site\wwwroot\wp-content\themes\metro");
+define('TEMPLATEPATH', "($_SERVER['HOME_EXPANDED'])\site\wwwroot\wp-content\themes\metro");
+define('STYLESHEETPATH', "($_SERVER['HOME_EXPANDED'])\site\wwwroot\wp-content\themes\metro");
 
 define('WP_CACHE', true);
-define('WPCACHEHOME', "D:\home\site\wwwroot\wp-content\plugins\wp-super-cache/");
+define('WPCACHEHOME', "($_SERVER['HOME_EXPANDED'])\site\wwwroot\wp-content\plugins\wp-super-cache/");
 
 define('DB_NAME', getenv('wp_db_name'));
 define('DB_USER', getenv('wp_db_user'));
@@ -34,7 +34,7 @@ define('LOGGED_IN_SALT',   'n0Erw1Yt@+eS@Tq_U-hjrx@;kBOt0Hqwwn~:G+2M>b+%[|NT%ZPJ
 define('NONCE_SALT',       'tAmX7v=|V&&Y&~fye]_h-Qj6jpTdS=<,|k<}|I+#|~cS8b.jPNA6iL]zL(,h%Y:}');
 
 define('SAVEQUERIES', FALSE);
-define('QUERY_LOG', "D:\home\site\wwwroot/wp-content\queries.log");
+define('QUERY_LOG', "($_SERVER['HOME_EXPANDED'])\site\wwwroot/wp-content\queries.log");
 define('WPLANG', '');
 define('WP_DEBUG', false);
 
