@@ -31,6 +31,7 @@
 			<li><a href="http://twitter.com/richardjgreen">Twitter</a></li>
 			<li><a href="http://linkedin.com/in/richardjgreen">LinkedIn</a></li>
 			<li><a href="<?php bloginfo( 'wpurl' ); ?>/contact/">Contact</a></li>
+			<li><a href="<?php bloginfo( 'wpurl' ); ?>/privacy/">Privacy</a></li>
 		</ul>
 	</div><!-- #footnav -->
 	
@@ -57,4 +58,4 @@
 </body>
 </html>
 
-<!-- This page was loaded from the <?php echo $_SERVER['SERVER_NAME']; ?> web site. -->
+<!-- This page was loaded from the <?php echo $_SERVER['SERVER_NAME']; ?> web site instance. -->
