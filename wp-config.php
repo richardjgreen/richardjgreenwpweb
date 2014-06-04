@@ -23,7 +23,7 @@ define('WP_SITEURL', 'http://richardjgreen.net');
 /** define('STYLESHEETPATH', "C:\DWASFiles\Sites\{$getenv('maws_sitename')}\VirtualDirectory0\site\wwwroot\wp-content\themes\metro"); */
 
 define('WP_CACHE', true);
-/** define('WPCACHEHOME', "C:\DWASFiles\Sites\{$getenv('maws_sitename')}\VirtualDirectory0\site\wwwroot\wp-content\plugins\wp-super-cache/"); */
+define('WPCACHEHOME', "C:\DWASFiles\Sites\{$_SERVER['DOCUMENT_ROOT']}\VirtualDirectory0\site\wwwroot\wp-content\plugins\wp-super-cache/");
 
 define('DB_NAME', getenv('wp_db_name'));
 define('DB_USER', getenv('wp_db_user'));
