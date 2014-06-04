@@ -15,17 +15,15 @@
 * @package WordPress
 */
 
-/** Custom Settings to Improve Performance */
 define('WP_MEMORY_LIMIT', '128M');
 define('AUTOSAVE_INTERVAL', 120);
 define('WP_HOME', 'http://richardjgreen.net');
 define('WP_SITEURL', 'http://richardjgreen.net');
-define('TEMPLATEPATH', "C:\DWASFiles\Sites\${getenv('maws_sitename')}\VirtualDirectory0\site\wwwroot\wp-content\themes\metro");
-define('STYLESHEETPATH', "C:\DWASFiles\Sites\${getenv('maws_sitename')}\VirtualDirectory0\site\wwwroot\wp-content\themes\metro");
+define('TEMPLATEPATH', "C:\DWASFiles\Sites\{$getenv('maws_sitename')}\VirtualDirectory0\site\wwwroot\wp-content\themes\metro");
+define('STYLESHEETPATH', "C:\DWASFiles\Sites\{$getenv('maws_sitename')}\VirtualDirectory0\site\wwwroot\wp-content\themes\metro");
 
-/** Settings for WordPress Super Cache Plugin */
 define('WP_CACHE', true);
-define('WPCACHEHOME', "C:\DWASFiles\Sites\${getenv('maws_sitename')}\VirtualDirectory0\site\wwwroot\wp-content\plugins\wp-super-cache/");
+define('WPCACHEHOME', "C:\DWASFiles\Sites\{$getenv('maws_sitename')}\VirtualDirectory0\site\wwwroot\wp-content\plugins\wp-super-cache/");
 
 define('DB_NAME', getenv('wp_db_name'));
 define('DB_USER', getenv('wp_db_user'));
@@ -37,15 +35,6 @@ define('DB_COLLATE', '');
 
 $table_prefix  = getenv('wp_db_prefix');
 
-/**#@+
-* Authentication Unique Keys and Salts.
-*
-* Change these to different unique phrases!
-* You can generate these using the {@link https://api.wordpress.org/secret-key/1.1/salt/ WordPress.org secret-key service}
-* You can change these at any point in time to invalidate all existing cookies. This will force all users to have to log in again.
-*
-* @since 2.6.0
-*/
 define('AUTH_KEY',         'O<_BwDImT)SQxuBVB]HRgfctwo)7`YavUC7<^i-iIH|H[_QlqNq^RCYq*6Df2gwo');
 define('SECURE_AUTH_KEY',  '<O2-$1+K-FDc:+<p?^%N]Q&:zkdv&y)-H4yEO0fh_|fQ_IlVNG4vZ,AJH^`*hj]B');
 define('LOGGED_IN_KEY',    '=/c8VIex+s7ANiUyQYH^AmRe=~5!6Z[v _[onF#EkNS]2.z!?2nI$ZHbTvz6%X^A');
@@ -57,7 +46,7 @@ define('NONCE_SALT',       'tAmX7v=|V&&Y&~fye]_h-Qj6jpTdS=<,|k<}|I+#|~cS8b.jPNA6
 
 /** Query Logging Settings */
 define('SAVEQUERIES', FALSE);
-define('QUERY_LOG', "C:\DWASFiles\Sites\${getenv('maws_sitename')}\VirtualDirectory0\site\wwwroot/wp-content\queries.log");
+define('QUERY_LOG', "C:\DWASFiles\Sites\{$getenv('maws_sitename')}\VirtualDirectory0\site\wwwroot/wp-content\queries.log");
 define('WPLANG', '');
 define('WP_DEBUG', false);
 
