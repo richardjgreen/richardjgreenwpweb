@@ -2,6 +2,7 @@
 ## WordPress Ignore
 ###################
 wp-content/uploads/
+wp-content/cache/
 
 #################
 ## Eclipse
