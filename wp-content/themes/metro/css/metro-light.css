@@ -1,0 +1,38 @@
+/* 
+Theme Name:Metro
+Theme URI:http://richardjgreen.net/metro-theme
+Description:A Windows Phone 7 Metro UI inspired theme, with design hints taken from the Touchality website design.
+Author:Richard J Green
+Author URI:http://richardjgreen.net
+Version:1.0
+Complimentry CSS stylesheet for the Metro WordPress Theme.
+This stylesheet manages the Light base colour.
+*/
+
+@media all{
+body{background-color:#fff; color:#000}
+#wrapper{background-color:#fff}
+.maintitle-left-subtitle{color:#b4b0b0}
+.maintitle-left-tweet li{color:#b4b0b0}
+.maintitle-left-tweet ul li a{color:#b4b0b0}
+.blank-metro-cube{color:#fff}
+.metro-cube{color:#fff}
+.metro-cube-me{color:#fff}
+.metro-cube-twitter{color:#fff}
+.metro-cube-linkedin{color:#fff}
+.footnav{background-color:#b4b0b0}
+.footnav ul{background-color:#fff}
+.footnav ul li a{color:#000}
+#footer{color:#b4b0b0}
+#footer a{color:#b4b0b0}
+#sidebar a{color:#b4b0b0}
+#sidebar li{background:transparent url(http://theme.richardjgreen.net/images/wp7arrow-black.png) no-repeat left 5px; background-size:20px 20px}
+#searchsubmit{background:transparent url(http://theme.richardjgreen.net/images/wp7arrow-black.png) no-repeat center top; background-size:23px 23px}
+#collapsable-archive ul li ul li ul li{background:transparent url(http://theme.richardjgreen.net/images/wp7arrow-black.png) no-repeat left top; background-size:20px 20px}
+.metro-smallcube{color:#fff}
+.metro-smallcube h2{color:#fff}
+#post h1 a{color:#000}
+#post h2 a{color:#000}
+.comment-body{color:#fff}
+input{color:#fff}
+}

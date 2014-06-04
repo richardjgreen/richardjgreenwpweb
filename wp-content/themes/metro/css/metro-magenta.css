@@ -1,0 +1,24 @@
+/* 
+Theme Name:Metro
+Theme URI:http://richardjgreen.net/
+Description:A Windows Phone 7 Metro UI inspired theme, with design hints taken from the Touchality website design.
+Author:Richard J Green
+Author URI:http://richardjgreen.net
+Version:1.0
+Complimentry CSS stylesheet for the Metro WordPress Theme.
+This stylesheet manages the Magenta colour palette.
+*/
+ 
+@media screen{
+.maintitle-left-title a{color:#d80073}
+.maintitle-left-livebox .maintitle-left-twitterlink a{color:#d80073}
+.metro-cube{background-color:#d80073}
+.metro-cube-me{background-color:#d80073}
+#content a{color:#d80073}
+#sidebar a:hover{color:#d80073}
+.metro-smallcube{background-color:#d80073}
+.post-byline{color:#d80073}
+.post-tags{color:#d80073}
+.comment-body{background-color:#d80073}
+.post-content h4{color:#d80073}
+}
