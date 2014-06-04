@@ -8,7 +8,7 @@ define('WP_MEMORY_LIMIT', '128M');
 define('AUTOSAVE_INTERVAL', 120);
 define('WP_HOME', 'http://richardjgreen.net');
 define('WP_SITEURL', 'http://richardjgreen.net');
-define('TEMPLATEPATH', "D:\home\site\site\wwwroot\wp-content\themes\metro");
+define('TEMPLATEPATH', "D:\home\site\wwwroot\wp-content\themes\metro");
 define('STYLESHEETPATH', "D:\home\site\wwwroot\wp-content\themes\metro");
 
 define('WP_CACHE', true);

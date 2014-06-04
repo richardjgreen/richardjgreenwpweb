@@ -57,4 +57,4 @@
 </body>
 </html>
 
-<!-- This page was loaded from the <?php echo getenv('maws_sitename'); ?> web site. -->
+<!-- This page was loaded from the <?php echo $_SERVER['SERVER_NAME']; ?> web site. -->
