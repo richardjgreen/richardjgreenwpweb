@@ -7,7 +7,7 @@
 $site_path = $_SERVER['HOME_EXPANDED'];
 $table_prefix  = getenv('wp_db_prefix');
 
-define('WP_MEMORY_LIMIT', '128M');
+define('WP_MEMORY_LIMIT', '1024M');
 define('AUTOSAVE_INTERVAL', 120);
 define('WP_HOME', 'http://richardjgreen.net');
 define('WP_SITEURL', 'http://richardjgreen.net');
