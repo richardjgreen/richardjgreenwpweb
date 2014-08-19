@@ -13,22 +13,15 @@
 			<div id="content">
 
 				<div id="post" class="post error404 not-found">
-					<h1 class="post-title"><?php _e( 'Not Found', 'metro' ); ?></h1>
+					<h1 class="post-title"><?php _e( 'Uh Oh (404)', 'metro' ); ?></h1>
 					<div class="post-content">
-						<p><?php _e( "Sorry, but the page you requested either cannot be found or is currently unavilable.", 'metro' ); ?></p>
-						<p><?php _e( "You can try using the post archives in the sidebar to the right to explore the posts on the site, or you can use the search field to find what you are looking for.", 'metro' ); ?></p>
-						<?php get_search_form(); ?>
+						<p><?php _e( "Seems like you either found a dead link out in the wild or you typed an address which doesn't exist here. ", 'metro' ); ?></p>
+						<p><?php _e( "Try using the explore and archive areas in the sidebar over on the right to find what you are looking for or try getting in touch with me if you are after something in particular.", 'metro' ); ?></p>
 					</div><!-- .entry-content -->
 				</div><!-- #post-0 -->
 			
 			</div><!-- #content -->
 			<?php get_sidebar(); ?>
 		</div><!-- #container -->
-		
-	<script type="text/javascript">
-		// Set the focus to the search field on the page to allow the user faster access to search.
-		document.getElementById('s') && document.getElementById('s').focus();
-	</script>
-
 
 <?php get_footer(); ?>

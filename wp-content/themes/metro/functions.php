@@ -47,8 +47,6 @@ function valid_search_form ($form) {
 add_filter('get_search_form', 'valid_search_form');
 
 /* Load External Functions */
-require_once(TEMPLATEPATH . '/functions/admin-menu.php');
-
 function metro_comment( $comment, $args, $depth ) {
 		$GLOBALS['comment'] = $comment;
 		switch ( $comment->comment_type ) :
