@@ -18,7 +18,7 @@
 <link rel="stylesheet" type="text/css" href="http://themecdn.richardjgreen.net/css/metro.css" />
 <link rel="profile" href="http://gmpg.org/xfn/11" />
 <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
-<meta name="viewport" content="width=device-width,initial-scale=1.0, user-scalable=yes" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0" />
 <meta name="description" content="<?php if ( is_single() ) { single_post_title('', true); } else { bloginfo('name'); echo " - "; bloginfo('description'); } ?>" />
 <link rel="alternate" type="application/rss+xml" title="<?php bloginfo('name'); ?> RSS Feed" href="<?php bloginfo('rss2_url'); ?>"/>
 <link rel="alternate" type="application/atom+xml" title="<?php bloginfo('name'); ?> Atom Feed" href="<?php bloginfo('atom_url'); ?>"/>
