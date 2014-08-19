@@ -15,7 +15,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <title><?php if (function_exists('is_tag') && is_tag()) { echo 'Tag Archive for &quot;'.$tag.'&quot; | '; } elseif (is_archive()) { wp_title(''); echo ' Archive | '; } elseif (is_search()) { echo 'Search for &quot;'.wp_specialchars($s).'&quot; | '; } elseif (!(is_404()) && (is_single()) || (is_page())) { wp_title(''); echo ' | '; } elseif (is_404()) { echo 'Not Found | '; } if (is_home()) { bloginfo('name'); echo ' | '; bloginfo('description'); } else { bloginfo('name'); } ?></title>
 
-<link rel="stylesheet" type="text/css" href="http://theme.richardjgreen.net/css/metro.css" />
+<link rel="stylesheet" type="text/css" href="http://themecdn.richardjgreen.net/css/metro.css" />
 <link rel="profile" href="http://gmpg.org/xfn/11" />
 <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
 <meta name="viewport" content="width=device-width,initial-scale=1.0, user-scalable=yes" />
@@ -23,6 +23,7 @@
 <link rel="alternate" type="application/rss+xml" title="<?php bloginfo('name'); ?> RSS Feed" href="<?php bloginfo('rss2_url'); ?>"/>
 <link rel="alternate" type="application/atom+xml" title="<?php bloginfo('name'); ?> Atom Feed" href="<?php bloginfo('atom_url'); ?>"/>
 
+<meta name="application-name" content="Richard J Green" />
 <meta name="msapplication-TileImage" content="http://themecdn.richardjgreen.net/images/msapplication-tileimage.png" />
 <meta name="msapplication-TileColor" content="#d80073" />
 <link rel="shortcut icon" href="http://themecdn.richardjgreen.net/images/favicon.ico" />
