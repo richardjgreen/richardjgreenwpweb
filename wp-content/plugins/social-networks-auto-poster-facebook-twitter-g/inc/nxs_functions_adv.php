@@ -12,6 +12,7 @@ if (!function_exists("nsFormatMessage")) { function nsFormatMessage($msg, $postI
   if (preg_match('%SURL%', $msg)) { $url = get_permalink($postID); if($addURLParams!='') $url .= (strpos($url,'?')!==false?'&':'?').$addURLParams; 
     $url = nxs_mkShortURL($url, $postID); $nxs_urlLen = nxs_strLen($url); $msg = str_ireplace("%SURL%", $url, $msg);
   }
+  if (preg_match('%ORID%', $msg)) { $msg = str_ireplace("%ORID%", $postID, $msg); } 
   if (preg_match('%IMG%', $msg)) { $imgURL = nxs_getPostImage($postID); $msg = str_ireplace("%IMG%", $imgURL, $msg); } 
   if (preg_match('%TITLE%', $msg)) { $title = nxs_doQTrans($post->post_title, $lng);  $msg = str_ireplace("%TITLE%", $title, $msg); }                    
   if (preg_match('%FULLTITLE%', $msg)) { $title = apply_filters('the_title', nxs_doQTrans($post->post_title, $lng));  $msg = str_ireplace("%FULLTITLE%", $title, $msg); }                    
@@ -73,7 +74,7 @@ if (!function_exists('nxs_showListRow')){function nxs_showListRow($ntParams) { $
             <?php if(!empty($ntParams['checkFunc']) &&  !function_exists($ntParams['checkFunc']['funcName'])) echo $ntParams['checkFunc']['msg']; else foreach ($ntOpts as $indx=>$pbo){  if (trim($pbo['nName']=='')) $pbo['nName'] = $ntInfo['name']; 
               if (empty($pbo[$ntInfo['lcode'].'OK'])) $pbo[$ntInfo['lcode'].'OK'] = !empty($pbo[$ntParams['chkField']])?'1':''; ?>
               <p style="margin:0px;margin-left:5px;"> <img id="<?php echo $ntInfo['code'].$indx;?>LoadingImg" style="display: none;" src='<?php echo $nxs_plurl; ?>img/ajax-loader-sm.gif' />
-              <?php if ((int)$pbo['do'.$ntInfo['code']] == 1 && isset($pbo['catSel']) && (int)$pbo['catSel'] == 1) { ?> <input type="radio" id="rbtn<?php echo $ntInfo['lcode'].$indx; ?>" checked="checked" onmouseout="nxs_hidePopUpInfo('popOnlyCat');" onmouseover="nxs_showPopUpInfo('popOnlyCat', event);" /> <?php } else { ?>            
+              <?php if ((int)$pbo['do'.$ntInfo['code']] == 1 && isset($pbo['catSel']) && (int)$pbo['catSel'] == 1) { ?> <input type="radio" id="rbtn<?php echo $ntInfo['lcode'].$indx; ?>" value="1" name="<?php echo $ntInfo['lcode']; ?>[<?php echo $indx; ?>][apDo<?php echo $ntInfo['code']; ?>]" checked="checked" onmouseout="nxs_hidePopUpInfo('popOnlyCat');" onmouseover="nxs_showPopUpInfo('popOnlyCat', event);" /> <?php } else { ?>
                 <input value="0" name="<?php echo $ntInfo['lcode']; ?>[<?php echo $indx; ?>][apDo<?php echo $ntInfo['code']; ?>]" type="hidden" />             
                 <input value="1" name="<?php echo $ntInfo['lcode']; ?>[<?php echo $indx; ?>][apDo<?php echo $ntInfo['code']; ?>]" type="checkbox" <?php if ((int)$pbo['do'.$ntInfo['code']] == 1 && $pbo['catSel']!='1') echo "checked"; ?> />             
               <?php } ?>            

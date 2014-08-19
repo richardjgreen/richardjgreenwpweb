@@ -1,4 +1,5 @@
 <?php
+
 	/*
 	 * The functions file, contains all of the functions and new routines to be added to the blog specific to this theme.
 	 * largely used for managing the admin options page which allows you to configure your Twitter and LinkedIn accounts and setup your

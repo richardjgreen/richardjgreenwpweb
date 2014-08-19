@@ -3,7 +3,7 @@
 if (!class_exists("NS_SNAutoPoster")) {
     class NS_SNAutoPoster {//## General Functions         
         var $dbOptionsName = "NS_SNAutoPoster";       
-        var $nxs_options = ""; var $nxs_ntoptions = "";
+        var $nxs_options = ""; var $nxs_ntoptions = ""; var $sMode = array('s'=>'S', 'l'=>'F', 'u'=>'O', 'a'=>'S'); 
         
         function __construct() {  load_plugin_textdomain('nxs_snap', FALSE, substr(dirname( plugin_basename( __FILE__ ) ), 0, -4).'/lang/'); $this->nxs_options = $this->getAPOptions(); } 
         //## Constructor
@@ -206,7 +206,6 @@ define('WP_ALLOW_MULTISITE', true);<br/>to<br/>define('WP_ALLOW_MULTISITE', fals
             update_option($this->dbOptionsName, $options); $this->nxs_options = $options;
             ?><div class="updated"><p><strong><?php _e("Settings Updated.", 'nxs_snap');?></strong></p></div><?php        
           }  
-          
           $isNoNts = true; foreach ($nxs_snapAvNts as $avNt) if (isset($options[$avNt['lcode']]) && is_array($options[$avNt['lcode']]) && count($options[$avNt['lcode']])>0) {$isNoNts = false; break;}      
           remove_action( 'get_terms', 'order_category_by_id', 10); // import category plugin breaks get_all_category_ids function
           $category_ids = get_all_category_ids(); if(isset($options['exclCats'])) $pk = maybe_unserialize($options['exclCats']); else $pk = '';
@@ -270,7 +269,7 @@ if ( is_array($category_ids) && is_array($pk) && count($category_ids) == count($
                 ?>
             </ul>
           </div>  
-       </div>    <div class="submit"><input type="button" id="" class="button-primary" name="btnSelCats" onclick="nxs_doSetSelCats( jQuery('#tmpCatSelNT').val() ); jQuery('#showCatSel').bPopup().close();" value="Select Categories" /></div>
+       </div>    <div class="submitX"><input type="button" id="" class="button-primary" name="btnSelCats" onclick="nxs_doSetSelCats( jQuery('#tmpCatSelNT').val() ); jQuery('#showCatSel').bPopup().close();" value="Select Categories" /></div>
            </div>
             <?php 
            foreach ($nxs_snapAvNts as $avNt) { $clName = 'nxs_snapClass'.$avNt['code']; $ntClInst = new $clName();
@@ -286,7 +285,7 @@ if ( is_array($category_ids) && is_array($pk) && count($category_ids) == count($
             <input onclick="jQuery('#impFileSettings_button').click(); return false;" type="button" class="button" name="impSettings_repostButton" id="impSettings_button"  value="<?php _e('Import Settings', 'nxs_snap') ?>" />            
            </div>
            <input value="'" type="hidden" name="nxs_mqTest" /> 
-           <div class="submit"><input type="submit" id="nxs-button-primary-submit" class="button-primary" name="update_NS_SNAutoPoster_settings" value="<?php _e('Update Settings', 'nxs_snap') ?>" /></div>
+           <div class="submitX"><input type="submit" id="nxs-button-primary-submit" class="button-primary" name="update_NS_SNAutoPoster_settings" value="<?php _e('Update Settings', 'nxs_snap') ?>" /></div>
            
            <?php } ?>   
     </form>          
@@ -631,7 +630,7 @@ if ( is_array($category_ids) && is_array($pk) && count($category_ids) == count($
         </p>    
       <?php } ?>       
            
-      <div class="submit"><input type="submit" class="button-primary" name="update_NS_SNAutoPoster_settings" value="<?php _e('Update Settings', 'nxs_snap') ?>" /></div>           
+      <div class="submitX"><input type="submit" class="button-primary" name="update_NS_SNAutoPoster_settings" value="<?php _e('Update Settings', 'nxs_snap') ?>" /></div>           
       </form>
     </div>
     
@@ -663,6 +662,7 @@ if ( is_array($category_ids) && is_array($pk) && count($category_ids) == count($
           echo  "<snap style='color:#008000;'>Current Time:</snap> ".date_i18n('Y-m-d H:i', $currTime)." | <snap style='color:#000080;'>Next Shedulled Time:</snap> ~".date_i18n('Y-m-d H:i', $nxTime)."  |  <snap style='color:#580058;'>Last Post made from query:</snap> ".date_i18n('Y-m-d H:i', $options['quLastShTime'])."<br/>----====== Query:<br/>";
           foreach ($quPosts as $spostID){  $pst = get_post($spostID);  echo $spostID." - ".$pst->post_title."<br/>";}
         }
+
 
       ?>
       </div>
@@ -799,10 +799,10 @@ if ( is_array($category_ids) && is_array($pk) && count($category_ids) == count($
 <?php }  
         }
         
-        function NS_SNAP_SavePostMetaTags($id) { global $nxs_snapAvNts, $plgn_NS_SNAutoPoster;  
-          if (get_magic_quotes_gpc() || (!empty($_POST['nxs_mqTest']) && $_POST['nxs_mqTest']=="\'")){ array_walk_recursive($_POST, 'nsx_stripSlashes'); } array_walk_recursive($_POST, 'nsx_fixSlashes'); 
+        function NS_SNAP_SavePostMetaTags($id) { global $nxs_snapAvNts, $plgn_NS_SNAutoPoster;            
           if (!empty($_POST['nxs_snapPostOptions'])) { $NXS_POSTX = $_POST['nxs_snapPostOptions']; $NXS_POST = array(); $NXS_POST = NXS_parseQueryStr($NXS_POSTX); } else $NXS_POST = $_POST;
-          if (count($NXS_POST)<1 || !isset($NXS_POST["snapEdIT"]) || empty($NXS_POST["snapEdIT"])) return;
+          if (count($NXS_POST)<1 || !isset($NXS_POST["snapEdIT"]) || empty($NXS_POST["snapEdIT"])) return; 
+          if (get_magic_quotes_gpc() || (!empty($_POST['nxs_mqTest']) && $_POST['nxs_mqTest']=="\'")){ array_walk_recursive($NXS_POST, 'nsx_stripSlashes'); }  array_walk_recursive($NXS_POST, 'nsx_fixSlashes');  
           if (!isset($plgn_NS_SNAutoPoster)) return; $options = $plgn_NS_SNAutoPoster->nxs_options; //  echo "| NS_SNAP_SavePostMetaTags - ".$id." |";
           $post = get_post($id); if ($post->post_type=='revision' && $post->post_status=='inherit' && $post->post_parent!='0') return; // prr($NXS_POST);          
           delete_post_meta($id, 'snap_MYURL'); add_post_meta($id, 'snap_MYURL', $NXS_POST["urlToUse"]);   delete_post_meta($id, 'snapEdIT'); add_post_meta($id, 'snapEdIT', '1' );            

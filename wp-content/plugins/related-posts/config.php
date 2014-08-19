@@ -1,6 +1,7 @@
 <?php
 
-define('WP_RP_STATIC_BASE_URL', 'https://wprpp.s3.amazonaws.com/static/');
+define('WP_RP_STATIC_BASE_URL', 'https://rp.zemanta.com/static/');
+define("WP_RP_ZEMANTA_API_URL", "http://api.zemanta.com/services/rest/0.0/");
 define('WP_RP_STATIC_THEMES_PATH', 'themes/');
 define('WP_RP_STATIC_JSON_PATH', 'json/');
 
@@ -28,6 +29,7 @@ define("WP_RP_MAX_LABEL_LENGTH", 32);
 
 define("WP_RP_CTR_DASHBOARD_URL", "https://d.zemanta.com/");
 define("WP_RP_STATIC_CTR_PAGEVIEW_FILE", "js/pageview.js");
+define("WP_RP_ZEMANTA_SUBSCRIPTION_URL", "http://prefs.zemanta.com/api/");
 
 define("WP_RP_STATIC_RECOMMENDATIONS_JS_FILE", "js/recommendations.js");
 define("WP_RP_STATIC_RECOMMENDATIONS_CSS_FILE", "wp-rp-css/recommendations.css");
@@ -66,7 +68,6 @@ function wp_rp_get_options() {
 		wp_rp_upgrade();
 		$wp_rp_meta = get_option('gp_meta');
 		$wp_rp_options = get_option('gp_options');
-		
 	}
 
 	$wp_rp_meta = new ArrayObject($wp_rp_meta);
@@ -199,8 +200,6 @@ function wp_rp_related_posts_db_table_install() {
 
 function wp_rp_install() {
 	$wp_rp_meta = array(
-		'blog_id' => false,
-		'auth_key' => false,
 		'version' => WP_RP_VERSION,
 		'first_version' => WP_RP_VERSION,
 		'new_user' => true,
@@ -209,11 +208,11 @@ function wp_rp_install() {
 		'show_turn_on_button' => true,
 		'name' => '',
 		'email' => '',
+		'subscribed' => false,
+		'registered' => false,
+		'zemanta_api_key' => false,
 		'global_notice' => null,
-		'remote_notifications' => array(),
 		'turn_on_button_pressed' => false,
-		'show_statistics' => false,
-		'show_traffic_exchange' => false,
 		'show_zemanta_linky_option' => true,
 		'classic_user' => strpos(get_bloginfo('language'), 'en') === 0 // Enable only if "any" english is the default language
 	);
@@ -226,29 +225,28 @@ function wp_rp_install() {
 		'on_rss'				=> false,
 		'max_related_post_age_in_days' => 0,
 		'default_thumbnail_path'		=> false,
-		'ctr_dashboard_enabled'		=> false,
 		'promoted_content_enabled'	=> false,
-		'enable_themes'				=> false,
+		'enable_themes'				=> true,
 		'custom_size_thumbnail_enabled'	=> false,
 		'custom_thumbnail_width' 	=> WP_RP_CUSTOM_THUMBNAILS_WIDTH,
 		'custom_thumbnail_height' 	=> WP_RP_CUSTOM_THUMBNAILS_HEIGHT,
-		'traffic_exchange_enabled' => false,
 		'thumbnail_use_custom'			=> false,
 		'thumbnail_custom_field'		=> false,
 		'display_zemanta_linky'			=> false,
         'only_admins_can_edit_related_posts' => false,
+		'subscription_types' => false,
 		'desktop' => array(
 			'display_comment_count'			=> false,
 			'display_publish_date'			=> false,
-			'display_thumbnail'			=> false,
+			'display_thumbnail'			=> true,
 			'display_excerpt'			=> false,
-			'excerpt_max_length'			=> 200,
-			'theme_name' 				=> 'vertical.css',
+			'excerpt_max_length'			=> 100,
+			'theme_name' 				=> 'vertical-m.css',
 			'theme_custom_css'			=> WP_RP_DEFAULT_CUSTOM_CSS,
 			'custom_theme_enabled' => false,
 		)
 	);
-
+	
 	update_option('gp_meta', $wp_rp_meta);
 	update_option('gp_options', $wp_rp_options);
 	wp_rp_set_global_notice();
@@ -261,6 +259,61 @@ function wp_rp_is_classic() {
 		return true;
 	}
 	return false;
+}
+
+function wp_rp_migrate_3_5() {
+	$meta = get_option('gp_meta');
+	$meta['version'] = '3.5.1';
+	$meta['new_user'] = false;
+	update_option('gp_meta', $meta);
+}
+
+function wp_rp_migrate_3_4_9() {
+	$meta = get_option('gp_meta');
+	$meta['version'] = '3.5';
+	$meta['new_user'] = false;
+	
+	if (isset($meta["show_traffic_exchange"])) {
+		unset($meta["show_traffic_exchange"]);
+	}
+	if (isset($meta["show_statistics"])) {
+		unset($meta["show_statistics"]);
+	}
+	if (isset($meta["remote_notifications"])) {
+		unset($meta["remote_notifications"]);
+	}
+	if (isset($meta["blog_id"])) {
+		unset($meta["blog_id"]);
+	}
+	if (isset($meta["auth_key"])) {
+		unset($meta["auth_key"]);
+	}
+	$meta['subscribed'] = false;
+	
+	update_option('gp_meta', $meta);
+		
+	$options = get_option('gp_options');
+	if (isset($options["ctr_dashboard_enabled"])) {
+		unset($options["ctr_dashboard_enabled"]);
+	}
+	if (isset($options["traffic_exchange_enabled"])) {
+		unset($options["traffic_exchange_enabled"]);
+	}
+	$options['subscription_types'] = 'newsletter,activityreport';
+	update_option('gp_options', $options);
+}
+
+function wp_rp_migrate_3_4_8() {
+	$wp_rp_meta = get_option('gp_meta');
+	$wp_rp_meta['version'] = '3.4.9';
+	$wp_rp_meta['new_user'] = false;
+
+	$wp_rp_meta['subscribed'] = false;
+	$wp_rp_meta['registered'] = false;
+	$wp_rp_meta['zemanta_api_key'] = false;
+	
+	update_option('gp_meta', $wp_rp_meta);
+	
 }
 
 function wp_rp_migrate_3_4_7() {

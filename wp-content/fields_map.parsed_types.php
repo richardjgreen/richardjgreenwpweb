@@ -870,5 +870,17 @@
   'meANoQms_options ADD UNIQUE KEY option_name' => 
   array (
   ),
+  'meANoQms_posts ADD INDEX' => 
+  array (
+  ),
+  'meANoQms_categories ADD INDEX' => 
+  array (
+  ),
+  'meANoQms_comments ADD INDEX' => 
+  array (
+  ),
+  'meANoQms_links ADD INDEX' => 
+  array (
+  ),
 )
  ?>

@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: Related Posts
-Version: 3.4.8
+Version: 3.5.1
 Plugin URI: http://wordpress.org/extend/plugins/related-posts/
 Description: Link to related content to help your readers. Get attention from other authors. Make great outbound links for SEO. With just a few clicks.
 Author: Zemanta
@@ -25,13 +25,13 @@ if (! function_exists('wp_rp_init_zemanta')) {
 	}
 }
 else {
-	function wp_rp_multiple_plugins_notice() {
+	function gp_multiple_plugins_notice() {
 		?>
 		<div class="updated">
-        <p><?php _e( 'Oh, it\'s OK, looks like you\'ve already got one related posts plugin installed, so no need for another one.', 'wp_wp_related_posts' ); ?></p>
+        <p><?php _e( 'Oh, it\'s OK, looks like you\'ve already got one related posts plugin installed, so no need for another one.', 'wp_rp_related_posts' ); ?></p>
 		</div>
 		<?php
 	}
-	add_action( 'admin_notices', 'wp_rp_multiple_plugins_notice' );
+	add_action( 'admin_notices', 'gp_multiple_plugins_notice' );
 }
 
